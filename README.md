@@ -2,9 +2,11 @@
 
 A simple code that can be used to download images and gifs from Reddit submissions and store them in a specific directory. This code uses [PRAW](https://praw.readthedocs.io/en/stable/) to get media URLs from Reddit.
 
-> _Supported media extension: gif, jpg, jpeg, png_
+> _Supported media extension: jpg, png, gif_
 
 ## Installation
+
+Before run the script install this required package
 
 ```bash
 pip install praw
@@ -26,7 +28,7 @@ PASSWORD = <your reddit password>
 SAVE_DIRECTORY = <your save directory>
 ```
 
-For `CLIENT_ID` and `CLIENT_SECRET` you can get them from [Reddit](https://www.reddit.com/prefs/apps) or you can check [OAuth2](https://github.com/reddit-archive/reddit/wiki/OAuth2) if still confused
+For `CLIENT_ID` and `CLIENT_SECRET` you can get them from [Reddit](https://www.reddit.com/prefs/apps) or you can check [OAuth2](https://github.com/reddit-archive/reddit/wiki/OAuth2).
 
 ## Usage
 
@@ -42,7 +44,7 @@ There is 4 __download types__:
 1. `saved`, will download media from your saved submission.
 2. `subreddit`, will download media from specific subreddit.
 3. `redditor`, will download media from specific redditor.
-4. `submission`, will download a single media from specific.submission
+4. `submission`, will download a single media from specific submission.
 
 ### Example
 
@@ -56,7 +58,7 @@ Then you will be shown like this
 Enter submission limit:
 ```
 
-Fill in the number of submissions you will download and it will try to download media from your saved submission with the specific limit you are given.
+Fill in the number of submissions you will download and it will try to download media from your saved submission with the specific limit you are given and then store them in a specific directory.
 
 > _Note: It will download supported file extensions only, so the not supported ones will be skipped._
 

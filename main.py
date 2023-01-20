@@ -3,6 +3,25 @@ import controller
 import sys
 from configparser import ConfigParser
 
+"""
+This is the file that you should run
+
+Example:
+    Here is the usage example::
+
+        $ python main.py saved
+
+Download types:
+    - ``saved``, will download media from your saved submission.
+    - ``subreddit``, will download media from specific subreddit.
+    - ``redditor``, will download media from specific redditor.
+    - ``submission``, will download a single media from specific submission.
+
+Todo:
+    * For module TODOs
+    * You have to also use ``sphinx.ext.todo`` extension
+"""
+
 config = ConfigParser()
 config.read('config.ini')
 
@@ -13,10 +32,19 @@ reddit = praw.Reddit(
     username=config.get('REDDIT', 'USERNAME'),
     password=config.get('REDDIT', 'PASSWORD')
 )
+"""reddit (Reddit): Reddit configuration
+
+Contains ``client_id``,``client_secret``,``user_agent``,``username``,
+and ``password``
+"""
 
 setup = {
     "directory": config.get('SETUP', 'SAVE_DIRECTORY'),
 }
+"""setup (dict): Download setup
+
+Contains ``directory``
+"""
 
 def main():
     num_args = len(sys.argv)

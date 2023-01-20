@@ -1,17 +1,26 @@
 import requests
 import os
 
-#supported extension
 extension = ('.jpg', '.png', '.gif')
+"""list (str): List of supported file extension
 
-#download file and save to current directory
-def simple_download(url, file_name) -> None:
-    img_data = requests.get(url).content
-    with open(file_name, 'wb') as handler:
-        handler.write(img_data)
+Due for some reason, the current download function cannot download file
+from embeded third party service.
+"""
 
-#default download
-def download(url, save_path, file_name) -> None:
+def download(url: str, save_path: str, file_name: str) -> None:
+    '''
+    This function takes an URL and download content from it and stores it in
+    a given directory with the specified file name
+    
+    Args:
+        url: A content URL
+        save_path: A directory path where the content will stored
+        file_name: The name of the file to be saved
+    
+    Returns:
+        None
+    '''
     file_ext = __get_ext(url)
     
     if file_ext not in extension:
@@ -30,8 +39,16 @@ def download(url, save_path, file_name) -> None:
     print(__BColors.OKGREEN + 'Download success: the file is stored in ' + file_path + __BColors.ENDC)
 
 
-#get file extension
-def __get_ext(url) -> str:
+def __get_ext(url: str) -> str:
+    '''
+    This function takes an URL and get a file extension from it
+    
+    Args:
+        url: An URL
+    
+    Returns:
+        The file extension
+    '''
     splitted_url = os.path.splitext(url)
     file_ext = splitted_url[1]
 
